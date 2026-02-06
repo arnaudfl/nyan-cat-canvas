@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nyan Cat — Canvas v3 (Your Sprite Sheet)</title>
+  <meta name="description" content="Nyan Cat-style canvas animation using your 32x32 sprite sheet + matching rainbow tile." />
+  <link rel="icon" href="./assets/icon.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="hud" aria-label="Controls">
+    <div class="hud__row">
+      <button id="btnToggle" class="btn" type="button">Pause</button>
+      <button id="btnScreenshot" class="btn" type="button">Screenshot</button>
+    </div>
+
+    <div class="hud__row">
+      <label class="label">Speed <input id="speed" type="range" min="0.5" max="3" step="0.1" value="1" /></label>
+      <label class="label">Stars <input id="stars" type="range" min="60" max="600" step="10" value="240" /></label>
+      <label class="label">Scale <input id="scale" type="range" min="2" max="6" step="1" value="5" /></label>
+    </div>
+
+    <div class="hud__row">
+      <label class="label">
+        Rainbow mode
+        <select id="rainbowMode">
+          <option value="sprite">Use sprite sheet rainbow</option>
+          <option value="tile">Use separate rainbow tile</option>
+          <option value="off">Off</option>
+        </select>
+      </label>
+
+      <label class="label">
+        Direction
+        <select id="direction">
+          <option value="right">Move right</option>
+          <option value="left">Move left</option>
+        </select>
+      </label>
+
+      <label class="label">
+        Quality
+        <select id="quality">
+          <option value="1">100%</option>
+          <option value="0.85">85%</option>
+          <option value="0.7">70%</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="hud__hint">Keys: <kbd>Space</kbd> pause • <kbd>S</kbd> screenshot</div>
+  </header>
+
+  <main class="stage" aria-label="Animation stage">
+    <canvas id="canvas"></canvas>
+    <noscript>This demo needs JavaScript.</noscript>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
