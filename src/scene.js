@@ -160,14 +160,32 @@ export async function createScene(canvas,{spriteUrl,rainbowUrl}){
     );
 
     // --- 2) Apply fade mask ONLY on the offscreen trail
-    const FADE_W = 200; // ajuste 120-260
+    const wI = Math.floor(TRAIL_W);
+    const x1 = rxI;
+    const x2 = rxI + wI;
+
+    // évite les cas où le fade dépasse la largeur (sinon gradient bizarre)
+    const FADE_W = Math.min(200, wI);
+
     trailCtx.save();
     trailCtx.globalCompositeOperation = "destination-in";
-    const grad = trailCtx.createLinearGradient(rxI, 0, rxI + FADE_W, 0);
-    grad.addColorStop(0, "rgba(255,255,255,0)");
-    grad.addColorStop(1, "rgba(255,255,255,1)");
+
+    let grad;
+    if (direction === "right") {
+      // fade on LEFT edge
+      grad = trailCtx.createLinearGradient(x1, 0, x1 + FADE_W, 0);
+      grad.addColorStop(0, "rgba(255,255,255,0)");
+      grad.addColorStop(1, "rgba(255,255,255,1)");
+    } else {
+      // fade on RIGHT edge
+      grad = trailCtx.createLinearGradient(x2 - FADE_W, 0, x2, 0);
+      grad.addColorStop(0, "rgba(255,255,255,1)");
+      grad.addColorStop(1, "rgba(255,255,255,0)");
+    }
+
     trailCtx.fillStyle = grad;
-    trailCtx.fillRect(rxI, ryBase, Math.floor(TRAIL_W), th);
+    trailCtx.fillRect(x1, ryBase, wI, th);
+
     trailCtx.restore();
 
     // --- 3) Composite trail back onto main canvas
