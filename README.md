@@ -92,7 +92,25 @@ To change it:
 
 ## 📜 License
 
-Just for fun & learning. Nyan Cat character © original creators.
+### Code
+
+All original source code in this repository is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute the code, including for commercial purposes, provided that the copyright notice and permission notice are included.
+
+### Assets (Important)
+
+The **Nyan Cat sprite** used in this project is **not** covered by the MIT License.
+
+* **Source project**: [https://github.com/DanOpcode/skuttande-nyan-cat](https://github.com/DanOpcode/skuttande-nyan-cat)
+* **Author**: DanOpcode
+* **File used**: `sprites/nyan-cat.png`
+* **License**: Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+  [https://creativecommons.org/licenses/by-sa/3.0/](https://creativecommons.org/licenses/by-sa/3.0/)
+
+Any modified versions of this sprite remain under the same **CC BY-SA 3.0** license.
+
+All rights to the original Nyan Cat character belong to their respective creators.
 
 ---
 
